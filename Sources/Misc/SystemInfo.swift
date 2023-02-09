@@ -169,7 +169,12 @@ extension SystemInfo {
     #elseif os(macOS)
     static let platformHeaderConstant = "macOS"
     #endif
-
+    
+    #if targetEnvironment(simulator)
+    static let isRunningInSimulator = true
+    #else
+    static let isRunningInSimulator = false
+    #endif
 }
 
 extension SystemInfo {
